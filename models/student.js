@@ -14,6 +14,15 @@ const studentSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref : 'Section',
             sparse:true
+            /*
+            The sparse property of an index ensures that the index only contain entries for documents 
+                  that have the indexed field. 
+            The index skips documents that do not have the indexed field.
+
+            --> We could also use regular indexes for our application.
+            But it won't be a good idea to use Unique indexes or unique sparse indexes.
+            or, we could also apply compund indexes in the schema itself if we watnt to.
+            */
       },
       email: {
             type: String,
